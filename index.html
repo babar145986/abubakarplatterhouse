@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abubakar Platter House | Taste the Difference</title>
+<style>
+:root{
+  --red:#e63946; --dark:#111827; --gold:#f4b942; --cream:#fff8ef;
+  --white:#fff; --muted:#6b7280; --shadow:0 18px 50px rgba(17,24,39,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;color:var(--dark);background:var(--cream);line-height:1.6}
+a{text-decoration:none;color:inherit}
+header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(17,24,39,.95);backdrop-filter:blur(10px)}
+.nav{max-width:1200px;margin:auto;padding:15px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.45rem;font-weight:900;color:#fff}.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:25px;list-style:none}.nav-links a{color:#fff;font-weight:700;font-size:.95rem;transition:.25s}.nav-links a:hover{color:var(--gold)}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:1.7rem}
+.hero{min-height:100vh;display:grid;place-items:center;padding:120px 24px 70px;position:relative;overflow:hidden;background:linear-gradient(120deg,rgba(17,24,39,.92),rgba(17,24,39,.55)),url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero-content{max-width:1200px;width:100%;color:#fff}.badge{display:inline-block;background:var(--gold);color:#111;padding:7px 14px;border-radius:999px;font-weight:800;margin-bottom:18px}
+.hero h1{font-size:clamp(3rem,8vw,6.5rem);line-height:.95;max-width:850px}.hero h1 span{color:var(--gold)}
+.hero p{max-width:650px;font-size:1.15rem;margin:25px 0;color:#f3f4f6}
+.btn{display:inline-block;padding:14px 24px;border-radius:12px;background:var(--red);color:#fff;font-weight:800;margin-right:10px;transition:.25s;border:2px solid var(--red)}.btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(230,57,70,.3)}.btn.alt{background:transparent;border-color:#fff}
+section{padding:90px 24px}.container{max-width:1200px;margin:auto}
+.section-head{text-align:center;margin-bottom:45px}.eyebrow{color:var(--red);font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:.8rem}.section-head h2{font-size:clamp(2rem,4vw,3.2rem);margin:7px 0}.section-head p{color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.about-img{height:450px;border-radius:28px;background:url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85') center/cover;box-shadow:var(--shadow)}
+.about-text h3{font-size:2rem;margin-bottom:15px}.about-text p{color:var(--muted);margin-bottom:18px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:25px}.feature{padding:18px;background:#fff;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,.06);text-align:center}.feature b{display:block;font-size:1.1rem}
+#menu{background:#fff}.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:var(--cream);border:1px solid #f0e8dd;border-radius:22px;overflow:hidden;transition:.3s}.card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}.card-img{height:190px;background-size:cover;background-position:center}.card-body{padding:20px}.card-body h3{font-size:1.35rem}.card-body p{color:var(--muted);font-size:.92rem}.price-row{display:flex;justify-content:space-between;align-items:center;margin-top:13px;padding-top:13px;border-top:1px solid #e7ddd0}.price{color:var(--red);font-weight:900;font-size:1.15rem}.tag{font-size:.75rem;background:#fff;padding:5px 9px;border-radius:8px;font-weight:800}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.info{background:var(--dark);color:#fff;border-radius:25px;padding:35px}.info h3{font-size:1.8rem;margin-bottom:20px}.info-item{padding:17px 0;border-bottom:1px solid rgba(255,255,255,.12)}.info-item:last-child{border-bottom:0}.info-item small{color:#9ca3af;display:block}.info-item a{color:var(--gold);font-weight:800}.map{border-radius:25px;min-height:330px;background:linear-gradient(rgba(230,57,70,.12),rgba(244,185,66,.18)),url('https://images.unsplash.com/photo-1524666041070-9d87656c25f1?auto=format&fit=crop&w=1000&q=80') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px}.map-box{background:rgba(255,255,255,.94);padding:25px;border-radius:18px;box-shadow:var(--shadow)}footer{background:#0b1020;color:#9ca3af;text-align:center;padding:30px 20px}footer strong{color:#fff}
+.top{position:fixed;right:20px;bottom:20px;width:48px;height:48px;border:0;border-radius:50%;background:var(--red);color:#fff;font-size:1.2rem;cursor:pointer;display:none;z-index:999}
+@media(max-width:850px){.nav-links{display:none;position:absolute;top:65px;left:0;width:100%;background:#111827;flex-direction:column;padding:20px 24px}.nav-links.open{display:flex}.menu-btn{display:block}.about-grid,.contact-grid{grid-template-columns:1fr}.menu-grid{grid-template-columns:repeat(2,1fr)}.about-img{height:330px}}
+@media(max-width:560px){.menu-grid,.features{grid-template-columns:1fr}.hero h1{font-size:3.5rem}.btn{margin-bottom:10px}.nav{padding:14px 18px}section{padding:70px 18px}}
+</style>
+</head>
+<body>
+<header>
+<nav class="nav">
+  <a class="logo" href="#home">Abubakar <span>Platter House</span></a>
+  <button class="menu-btn" aria-label="Open menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li><li><a href="#menu">Menu</a></li><li><a href="#address">Address</a></li><li><a href="#contact">Contact</a></li><li><a href="#about">About Us</a></li>
+  </ul>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="badge">🍽 Fresh • Flavorful • Family Friendly</span>
+    <h1>Good Food.<br><span>Great Moments.</span></h1>
+    <p>Welcome to Abubakar Platter House — serving delicious pizzas, burgers, refreshing drinks and generous platters made for sharing.</p>
+    <a href="#menu" class="btn">Explore Menu</a>
+    <a href="tel:034298787656" class="btn alt">Call Now</a>
+  </div>
+</section>
+
+<section id="about">
+<div class="container">
+  <div class="about-grid">
+    <div class="about-img"></div>
+    <div class="about-text">
+      <div class="eyebrow">About Us</div>
+      <h3>Your local place for unforgettable meals.</h3>
+      <p>At Abubakar Platter House, we believe great food brings people together. From cheesy pizzas and juicy burgers to refreshing juices and hearty platters, our menu is designed for cravings, celebrations and family time.</p>
+      <p>Visit us on Mansooka Shabqadar Matta Road and enjoy a warm, welcoming dining experience.</p>
+      <div class="features"><div class="feature">🍕<b>Fresh Pizza</b><small>Made to order</small></div><div class="feature">🥘<b>Big Platters</b><small>Perfect for sharing</small></div><div class="feature">🥤<b>Cold Drinks</b><small>Refresh your day</small></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="menu">
+<div class="container">
+  <div class="section-head"><div class="eyebrow">Our Menu</div><h2>Made to Make You Hungry</h2><p>Simple favorites, generous portions and prices you can enjoy.</p></div>
+  <div class="menu-grid">
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><h3>Pizza — Small</h3><p>Classic cheesy pizza, freshly baked.</p><div class="price-row"><span class="price">Rs. 1,200</span><span class="tag">SMALL</span></div></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1566843972142-a7fcb70de55a?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><h3>Pizza — Medium</h3><p>Perfect size for sharing and satisfying.</p><div class="price-row"><span class="price">Rs. 1,500</span><span class="tag">MEDIUM</span></div></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><h3>Pizza — Large</h3><p>Go big with extra room for everyone.</p><div class="price-row"><span class="price">Rs. 2,000</span><span class="tag">LARGE</span></div></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><h3>Classic Burger</h3><p>Juicy, flavorful and stacked with fresh toppings.</p><div class="price-row"><span class="price">Rs. 1,500</span><span class="tag">MEDIUM</span></div></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><h3>Fresh Juices</h3><p>Mango • Orange • Apple • Pineapple • Lemon Mint</p><div class="price-row"><span class="price">Ask for price</span><span class="tag">FRESH</span></div></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><h3>Cold Drinks</h3><p>Chilled soft drinks and refreshing favorites.</p><div class="price-row"><span class="price">All available</span><span class="tag">CHILLED</span></div></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><h3>Platter — 2 Person</h3><p>A generous platter made for two.</p><div class="price-row"><span class="price">Rs. 1,200</span><span class="tag">2 PERSON</span></div></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><h3>Platter — 4 Person</h3><p>More food, more fun, more memories.</p><div class="price-row"><span class="price">Rs. 1,600</span><span class="tag">4 PERSON</span></div></div></article>
+    <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><h3>Platter — 6 Person</h3><p>The ultimate feast for a bigger gathering.</p><div class="price-row"><span class="price">Rs. 4,000</span><span class="tag">6 PERSON</span></div></div></article>
+  </div>
+</div>
+</section>
+
+<section id="address">
+<div class="container">
+ <div class="section-head"><div class="eyebrow">Find Us</div><h2>Come Visit Us</h2><p>We're ready to serve you something delicious.</p></div>
+ <div class="contact-grid">
+   <div class="info">
+    <h3>Restaurant Details</h3>
+    <div class="info-item"><small>📍 Address</small>Mansooka Shabqadar Matta Road</div>
+    <div class="info-item"><small>📞 Contact</small><a href="tel:034298787656">0342 98787656</a></div>
+    <div class="info-item"><small>🍽️ Dining</small>Family friendly • Dine-in</div>
+   </div>
+   <div class="map"><div class="map-box"><h3>📍 Mansooka Shabqadar</h3><p>Matta Road</p><br><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Mansooka+Shabqadar+Matta+Road" target="_blank">Open in Maps</a></div></div>
+ </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+ <div class="section-head"><div class="eyebrow">Contact</div><h2>Let's Talk Food</h2><p>Call us for orders, questions or table inquiries.</p></div>
+ <div style="text-align:center">
+   <a href="tel:034298787656" class="btn">📞 0342 98787656</a>
+   <a href="https://wa.me/9234298787656" target="_blank" class="btn" style="background:#25D366;border-color:#25D366">💬 WhatsApp Us</a>
+ </div>
+</div>
+</section>
+</main>
+
+<footer><p>© <span id="year"></span> <strong>Abubakar Platter House</strong>. All rights reserved.</p><p>Mansooka Shabqadar Matta Road • 0342 98787656</p></footer>
+<button class="top" id="topBtn" aria-label="Back to top">↑</button>
+
+<script>
+const menuBtn=document.querySelector('.menu-btn');
+const nav=document.querySelector('.nav-links');
+menuBtn.addEventListener('click',()=>nav.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const topBtn=document.getElementById('topBtn');
+window.addEventListener('scroll',()=>topBtn.style.display=window.scrollY>500?'block':'none');
+topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
